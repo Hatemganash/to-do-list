@@ -85,12 +85,12 @@ class ChecklistViewController: UITableViewController, AddItemViewControllerDeleg
         let indexpath = [indexPath]
         tableView.deleteRows(at: [indexPath], with: .automatic)
     }
-    func addItemViewControllerDidCancel(
+    func itemDetailViewControllerDidCancel(
       _ controller: AddItemViewController
     ){
       navigationController?.popViewController(animated: true)
     }
-    func addItemViewController(
+    func itemDetailViewController(
       _ controller: AddItemViewController,
       didFinishAdding item: ChecklistItem
     )
@@ -102,7 +102,7 @@ class ChecklistViewController: UITableViewController, AddItemViewControllerDeleg
       tableView.insertRows(at: indexPaths, with: .automatic)
       navigationController?.popViewController(animated:true)
     }
-    func addItemViewController(
+    func itemDetailViewController(
       _ controller: AddItemViewController,
       didFinishEditing item: ChecklistItem
     ){
