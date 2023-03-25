@@ -16,27 +16,42 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="checkmark" indentationWidth="10" reuseIdentifier="ChecklistItem" id="GPe-uh-EBR">
-                                <rect key="frame" x="0.0" y="50" width="375" height="43.5"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="detailDisclosureButton" indentationWidth="10" reuseIdentifier="ChecklistItem" id="GPe-uh-EBR">
+                                <rect key="frame" x="0.0" y="50" width="375" height="37"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="GPe-uh-EBR" id="OLb-Dc-dUO">
-                                    <rect key="frame" x="0.0" y="0.0" width="335" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="316.5" height="37"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="1000" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y53-34-GCy">
-                                            <rect key="frame" x="20" y="11" width="295" height="21.5"/>
+                                            <rect key="frame" x="30" y="5" width="281.5" height="27"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="1001" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="✓" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6NP-R0-irF">
+                                            <rect key="frame" x="5" y="5" width="20" height="27"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="20" id="Eo0-UG-OCC"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="bottom" secondItem="y53-34-GCy" secondAttribute="bottom" constant="11" id="4YP-4k-vHD"/>
-                                        <constraint firstAttribute="trailing" secondItem="y53-34-GCy" secondAttribute="trailing" constant="20" symbolic="YES" id="9W5-Qn-OGI"/>
-                                        <constraint firstItem="y53-34-GCy" firstAttribute="top" secondItem="OLb-Dc-dUO" secondAttribute="top" constant="11" id="YJA-1p-un0"/>
-                                        <constraint firstItem="y53-34-GCy" firstAttribute="leading" secondItem="OLb-Dc-dUO" secondAttribute="leading" constant="20" symbolic="YES" id="tVY-pk-fnr"/>
+                                        <constraint firstItem="6NP-R0-irF" firstAttribute="top" secondItem="OLb-Dc-dUO" secondAttribute="top" constant="5" id="2AK-Zi-037"/>
+                                        <constraint firstAttribute="bottom" secondItem="y53-34-GCy" secondAttribute="bottom" constant="5" id="5xL-WH-KQo"/>
+                                        <constraint firstAttribute="bottom" secondItem="6NP-R0-irF" secondAttribute="bottom" constant="5" id="bgW-6h-jqU"/>
+                                        <constraint firstAttribute="trailing" secondItem="y53-34-GCy" secondAttribute="trailing" constant="5" id="e2L-Ga-xAf"/>
+                                        <constraint firstItem="6NP-R0-irF" firstAttribute="leading" secondItem="OLb-Dc-dUO" secondAttribute="leading" constant="5" id="poQ-rr-9s2"/>
+                                        <constraint firstItem="y53-34-GCy" firstAttribute="leading" secondItem="6NP-R0-irF" secondAttribute="trailing" constant="5" id="qQ3-H8-qjb"/>
+                                        <constraint firstItem="y53-34-GCy" firstAttribute="top" secondItem="OLb-Dc-dUO" secondAttribute="top" constant="5" id="rrK-C3-8rV"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="g3l-vM-Am4" kind="show" identifier="EditItem" trigger="accessoryAction" id="aKk-Ae-UVI"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -79,7 +94,7 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                                                     <connections>
-                                                        <action selector="done:" destination="g3l-vM-Am4" eventType="editingDidEndOnExit" id="ogX-2I-Hky"/>
+                                                        <action selector="done" destination="g3l-vM-Am4" eventType="editingDidEndOnExit" id="jvz-4q-mYp"/>
                                                         <outlet property="delegate" destination="g3l-vM-Am4" id="LWd-N6-1Bk"/>
                                                     </connections>
                                                 </textField>
@@ -140,6 +155,9 @@
             <point key="canvasLocation" x="-79.200000000000003" y="-71.514242878560722"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="aKk-Ae-UVI"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

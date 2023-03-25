@@ -14,6 +14,10 @@ protocol AddItemViewControllerDelegate: AnyObject {
     _ controller: AddItemViewController,didFinishAdding
     item: ChecklistItem
   )
+    func addItemViewController(
+      _ controller: AddItemViewController,
+      didFinishEditing item: ChecklistItem
+    )
 }
 
 
@@ -22,20 +26,34 @@ class AddItemViewController: UITableViewController,UITextFieldDelegate {
     
     @IBOutlet weak var doneBarButton: UIBarButtonItem!
     
-    
+    var itemToEdit: ChecklistItem?
+    weak var delegate: AddItemViewControllerDelegate?
     @IBAction func cancel() {
         delegate?.addItemViewControllerDidCancel(self)
     }
     @IBAction func done() {
-        let item = ChecklistItem()
-        item.text = textfield.text!
-        delegate?.addItemViewController(self, didFinishAdding: item)
+        if let item = itemToEdit {
+            item.text = textfield.text!
+            delegate?.addItemViewController(
+        self,
+              didFinishEditing: item)
+          } else {
+            let item = ChecklistItem()
+            item.text = textfield.text!
+            delegate?.addItemViewController(self, didFinishAdding: item)
+        }
     }
     
-    weak var delegate: AddItemViewControllerDelegate?
+   
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if let item = itemToEdit {
+            title = "Edit Item"
+            textfield.text = item.text
+            doneBarButton.isEnabled = true
+        
+        }
         navigationItem.largeTitleDisplayMode = .never
         
     }
