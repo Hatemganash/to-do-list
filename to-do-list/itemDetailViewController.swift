@@ -9,19 +9,19 @@ import UIKit
 
 protocol AddItemViewControllerDelegate: AnyObject {
   func itemDetailViewControllerDidCancel (
-    _ controller: AddItemViewController )
+    _ controller: itemDetailViewController )
   func itemDetailViewController (
-    _ controller: AddItemViewController,didFinishAdding
+    _ controller: itemDetailViewController,didFinishAdding
     item: ChecklistItem
   )
     func itemDetailViewController(
-      _ controller: AddItemViewController,
+      _ controller: itemDetailViewController,
       didFinishEditing item: ChecklistItem
     )
 }
 
 
-class AddItemViewController: UITableViewController,UITextFieldDelegate {
+class itemDetailViewController: UITableViewController,UITextFieldDelegate {
    
     @IBOutlet weak var textfield: UITextField!
     @IBOutlet weak var doneBarButton: UIBarButtonItem!
@@ -54,6 +54,7 @@ class AddItemViewController: UITableViewController,UITextFieldDelegate {
             doneBarButton.isEnabled = true
             
         }
+        
 
         navigationItem.largeTitleDisplayMode = .never
         
