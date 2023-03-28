@@ -17,6 +17,7 @@ class ChecklistViewController: UITableViewController, AddItemViewControllerDeleg
         
         navigationController?.navigationBar.prefersLargeTitles = true
         loadChecklistItems()
+        
         let item1 = ChecklistItem()
           item1.text = "Welcome To your TO DO List "
           items.append(item1)
@@ -50,10 +51,13 @@ class ChecklistViewController: UITableViewController, AddItemViewControllerDeleg
             let item = items[indexPath.row]
             item.checked.toggle()
             configureCheckmark(for: cell, with: item)
-          }
+            
+        }
           tableView.deselectRow(at: indexPath, animated: true)
         saveChecklistItems()
-        }
+        
+    }
+    
     func configureCheckmark(for cell: UITableViewCell,with item: ChecklistItem)
     {
     let label = cell.viewWithTag(1001) as! UILabel
@@ -63,10 +67,9 @@ class ChecklistViewController: UITableViewController, AddItemViewControllerDeleg
         label.text = ""
       }
     }
-    func configureText(
-      for cell: UITableViewCell,
-      with item: ChecklistItem
-    ){
+    
+    func configureText(for cell: UITableViewCell, with item: ChecklistItem)
+    {
     let label = cell.viewWithTag(1000) as! UILabel
       label.text = item.text
     }
@@ -89,17 +92,17 @@ class ChecklistViewController: UITableViewController, AddItemViewControllerDeleg
     {
         let newRowIndex = items.count
         items.append(item)
-      let indexPath = IndexPath(row: newRowIndex, section: 0)
-      let indexPaths = [indexPath]
-      tableView.insertRows(at: indexPaths, with: .automatic)
-      navigationController?.popViewController(animated:true)
+        let indexPath = IndexPath(row: newRowIndex, section: 0)
+        let indexPaths = [indexPath]
+        tableView.insertRows(at: indexPaths, with: .automatic)
+        navigationController?.popViewController(animated:true)
         saveChecklistItems()
     }
     func itemDetailViewController(
       _ controller: AddItemViewController,
       didFinishEditing item: ChecklistItem
     ){
-    if let index = items.firstIndex(of : item) {
+        if let index = items.firstIndex(of : item) {
         let indexPath = IndexPath(row: index, section: 0)
         if let cell = tableView.cellForRow(at: indexPath) {
           configureText(for: cell, with: item)
@@ -115,7 +118,9 @@ class ChecklistViewController: UITableViewController, AddItemViewControllerDeleg
         if segue.identifier == "AddItem" {
             let controller = segue.destination as! AddItemViewController
             controller.delegate = self
-        }else if segue.identifier == "EditItem" {
+            
+        }
+        else if segue.identifier == "EditItem" {
             let controller = segue.destination as! AddItemViewController
             controller.delegate = self
             if let indexPath = tableView.indexPath(

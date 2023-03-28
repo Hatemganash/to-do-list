@@ -22,15 +22,16 @@ protocol AddItemViewControllerDelegate: AnyObject {
 
 
 class AddItemViewController: UITableViewController,UITextFieldDelegate {
+   
     @IBOutlet weak var textfield: UITextField!
-    
     @IBOutlet weak var doneBarButton: UIBarButtonItem!
-    
     var itemToEdit: ChecklistItem?
     weak var delegate: AddItemViewControllerDelegate?
+    
     @IBAction func cancel() {
         delegate?.itemDetailViewControllerDidCancel(self)
     }
+    
     @IBAction func done() {
         if let item = itemToEdit {
             item.text = textfield.text!
@@ -44,7 +45,6 @@ class AddItemViewController: UITableViewController,UITextFieldDelegate {
         }
     }
     
-   
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -52,19 +52,25 @@ class AddItemViewController: UITableViewController,UITextFieldDelegate {
             title = "Edit Item"
             textfield.text = item.text
             doneBarButton.isEnabled = true
-        
+            
         }
+
         navigationItem.largeTitleDisplayMode = .never
         
     }
     
-    override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+    override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath?
+    
+    {
         return nil
+        
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         textfield.becomeFirstResponder()
+        
+    }
     
-}
     func textField(
       _ textField: UITextField,
       shouldChangeCharactersIn range: NSRange,
