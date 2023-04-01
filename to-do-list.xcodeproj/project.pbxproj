@@ -68,7 +68,7 @@
 		89040E4429C782E60031F877 /* to-do-list */ = {
 			isa = PBXGroup;
 			children = (
-				89B6273729D7826A003C1671 /* Resourses */,
+				899DDA8129D8ADCE00966B58 /* Resourses */,
 				89B6273629D78253003C1671 /* View Controllers */,
 				89B6273529D78235003C1671 /* Data Models */,
 				89040E4529C782E60031F877 /* AppDelegate.swift */,
@@ -76,6 +76,16 @@
 				89040E4729C782E60031F877 /* SceneDelegate.swift */,
 			);
 			path = "to-do-list";
+			sourceTree = "<group>";
+		};
+		899DDA8129D8ADCE00966B58 /* Resourses */ = {
+			isa = PBXGroup;
+			children = (
+				89040E4E29C782E80031F877 /* Assets.xcassets */,
+				89040E5029C782E80031F877 /* LaunchScreen.storyboard */,
+				89040E4B29C782E70031F877 /* Main.storyboard */,
+			);
+			path = Resourses;
 			sourceTree = "<group>";
 		};
 		89B6273529D78235003C1671 /* Data Models */ = {
@@ -97,16 +107,6 @@
 				898CF17429CBD67400FBFF65 /* itemDetailViewController.swift */,
 			);
 			path = "View Controllers";
-			sourceTree = "<group>";
-		};
-		89B6273729D7826A003C1671 /* Resourses */ = {
-			isa = PBXGroup;
-			children = (
-				89040E4E29C782E80031F877 /* Assets.xcassets */,
-				89040E5029C782E80031F877 /* LaunchScreen.storyboard */,
-				89040E4B29C782E70031F877 /* Main.storyboard */,
-			);
-			name = Resourses;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
