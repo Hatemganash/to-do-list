@@ -18,6 +18,7 @@
 		8982B89929D2C750008FD761 /*  ListDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8982B89829D2C750008FD761 /*  ListDetailViewController.swift */; };
 		898CF17529CBD67400FBFF65 /* itemDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898CF17429CBD67400FBFF65 /* itemDetailViewController.swift */; };
 		8997A3DC29CB797500F78543 /* ChecklistItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8997A3DB29CB797500F78543 /* ChecklistItem.swift */; };
+		89F1135C29D4F3BB0084A84E /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F1135B29D4F3BB0084A84E /* DataModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		8982B89829D2C750008FD761 /*  ListDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = " ListDetailViewController.swift"; sourceTree = "<group>"; };
 		898CF17429CBD67400FBFF65 /* itemDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = itemDetailViewController.swift; sourceTree = "<group>"; };
 		8997A3DB29CB797500F78543 /* ChecklistItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistItem.swift; sourceTree = "<group>"; };
+		89F1135B29D4F3BB0084A84E /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,20 +68,45 @@
 		89040E4429C782E60031F877 /* to-do-list */ = {
 			isa = PBXGroup;
 			children = (
+				89B6273729D7826A003C1671 /* Resourses */,
+				89B6273629D78253003C1671 /* View Controllers */,
+				89B6273529D78235003C1671 /* Data Models */,
 				89040E4529C782E60031F877 /* AppDelegate.swift */,
-				89040E4729C782E60031F877 /* SceneDelegate.swift */,
-				89040E4929C782E60031F877 /* CheckListViewController.swift */,
-				89040E4B29C782E70031F877 /* Main.storyboard */,
-				89040E4E29C782E80031F877 /* Assets.xcassets */,
-				89040E5029C782E80031F877 /* LaunchScreen.storyboard */,
 				89040E5329C782E80031F877 /* Info.plist */,
-				8997A3DB29CB797500F78543 /* ChecklistItem.swift */,
-				898CF17429CBD67400FBFF65 /* itemDetailViewController.swift */,
-				8982B89429D2AFEA008FD761 /* AllListsViewController.swift */,
-				8982B89629D2B6D0008FD761 /* Checklist.swift */,
-				8982B89829D2C750008FD761 /*  ListDetailViewController.swift */,
+				89040E4729C782E60031F877 /* SceneDelegate.swift */,
 			);
 			path = "to-do-list";
+			sourceTree = "<group>";
+		};
+		89B6273529D78235003C1671 /* Data Models */ = {
+			isa = PBXGroup;
+			children = (
+				8982B89629D2B6D0008FD761 /* Checklist.swift */,
+				8997A3DB29CB797500F78543 /* ChecklistItem.swift */,
+				89F1135B29D4F3BB0084A84E /* DataModel.swift */,
+			);
+			path = "Data Models";
+			sourceTree = "<group>";
+		};
+		89B6273629D78253003C1671 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				8982B89829D2C750008FD761 /*  ListDetailViewController.swift */,
+				8982B89429D2AFEA008FD761 /* AllListsViewController.swift */,
+				89040E4929C782E60031F877 /* CheckListViewController.swift */,
+				898CF17429CBD67400FBFF65 /* itemDetailViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		89B6273729D7826A003C1671 /* Resourses */ = {
+			isa = PBXGroup;
+			children = (
+				89040E4E29C782E80031F877 /* Assets.xcassets */,
+				89040E5029C782E80031F877 /* LaunchScreen.storyboard */,
+				89040E4B29C782E70031F877 /* Main.storyboard */,
+			);
+			name = Resourses;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -161,6 +188,7 @@
 				89040E4829C782E60031F877 /* SceneDelegate.swift in Sources */,
 				8997A3DC29CB797500F78543 /* ChecklistItem.swift in Sources */,
 				8982B89729D2B6D0008FD761 /* Checklist.swift in Sources */,
+				89F1135C29D4F3BB0084A84E /* DataModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

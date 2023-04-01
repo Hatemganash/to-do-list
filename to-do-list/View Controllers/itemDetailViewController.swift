@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import UserNotifications
 
 protocol AddItemViewControllerDelegate: AnyObject {
   func itemDetailViewControllerDidCancel (
@@ -23,11 +24,25 @@ protocol AddItemViewControllerDelegate: AnyObject {
 
 class itemDetailViewController: UITableViewController,UITextFieldDelegate {
    
-    @IBOutlet weak var textfield: UITextField!
-    @IBOutlet weak var doneBarButton: UIBarButtonItem!
+    
     var itemToEdit: ChecklistItem?
     weak var delegate: AddItemViewControllerDelegate?
+    @IBOutlet weak var textfield: UITextField!
+    @IBOutlet weak var doneBarButton: UIBarButtonItem!
     
+    @IBOutlet weak var shouldRemindSwitch: UISwitch!
+    
+    @IBOutlet weak var datePicker: UIDatePicker!
+    
+    @IBAction func shouldRemindToggled(_ sender: Any) {
+        textfield.resignFirstResponder()
+        if shouldRemindSwitch.isOn{
+            let center = UNUserNotificationCenter.current()
+            center.requestAuthorization(options: [.alert, .sound]) {_, _
+           in
+           }
+        }
+    }
     @IBAction func cancel() {
         delegate?.itemDetailViewControllerDidCancel(self)
     }
@@ -35,13 +50,17 @@ class itemDetailViewController: UITableViewController,UITextFieldDelegate {
     @IBAction func done() {
         if let item = itemToEdit {
             item.text = textfield.text!
-            delegate?.itemDetailViewController(
-        self,
-              didFinishEditing: item)
+            item.shouldRemind = shouldRemindSwitch.isOn
+            item.dueDate = datePicker.date
+            item.scheduleNotification()
+            delegate?.itemDetailViewController(self,didFinishEditing: item)
           } else {
             let item = ChecklistItem()
             item.text = textfield.text!
-            delegate?.itemDetailViewController(self, didFinishAdding: item)
+              item.shouldRemind=shouldRemindSwitch.isOn
+              item.dueDate = datePicker.date
+              item.scheduleNotification()
+            delegate?.itemDetailViewController(self,didFinishAdding: item)
         }
     }
     
@@ -52,6 +71,8 @@ class itemDetailViewController: UITableViewController,UITextFieldDelegate {
             title = "Edit Item"
             textfield.text = item.text
             doneBarButton.isEnabled = true
+            shouldRemindSwitch.isOn = item.shouldRemind
+            datePicker.date = item.dueDate
             
         }
         
